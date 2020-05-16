@@ -16,6 +16,8 @@ class Game
         Game();
         // Destructor
         ~Game();
+
+        int ticksLastFrame;
         // This will not change anything in class, its a getter so set it as const
         bool IsRunning() const;
         void Initialize(int width, int height);
