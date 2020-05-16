@@ -21,8 +21,8 @@ bool Game::IsRunning() const
 // Projectile Variables to see something on screen
 float projectilePositionX = 0.0f;
 float projectilePositionY = 0.0f;
-float projectileVelX = 10.0f;
-float projectileVelY = 10.0f;
+float projectileVelX = 1.0f;
+float projectileVelY = 1.0f;
 
 void Game::Initialize(int width, int height)
 {
