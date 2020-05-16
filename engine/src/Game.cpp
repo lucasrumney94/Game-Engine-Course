@@ -1,10 +1,15 @@
 #include <iostream>
-#include "./Constants.h"
-#include "./Game.h"
+
 #include "../lib/glm/glm.hpp"
 
+#include "./Constants.h"
+#include "./Game.h"
+#include "./Components/TransformComponent.h"
 
-Game::Game()
+EntityManager manager;
+SDL_Renderer* Game::renderer;
+
+Game::Game(): ticksLastFrame{0}
 {
     this->isRunning = false;
 }
@@ -18,11 +23,6 @@ bool Game::IsRunning() const
 {
     return this->isRunning;
 }
-
-// Projectile Variables to see something on screen
-// TODO: Move these to a proper place
-glm::vec2 projectilePos = glm::vec2(0.0f, 0.0f);
-glm::vec2 projectileVel = glm::vec2(20.0f, 30.0f);
 
 void Game::Initialize(int width, int height)
 {
@@ -59,8 +59,20 @@ void Game::Initialize(int width, int height)
         return;
     }
 
+    LoadLevel(0);
+
     isRunning = true;
     return;
+}
+
+void Game::LoadLevel(int levelNumber)
+{
+    // add entities and components to the entities
+
+    // create and add a new Entity named projectile
+    Entity& newEntity(manager.AddEntity("projectile"));
+    newEntity.AddComponent<TransformComponent>(0, 0, 20, 20, 32, 32, 1);
+
 }
 
 void Game::ProcessInput()
@@ -122,12 +134,8 @@ void Game::Update()
     // to be used in the next pass
     ticksLastFrame = ticksCurrent;
 
-    // update the position scaled by deltaTime
-    projectilePos = glm::vec2(
-        projectilePos.x + projectileVel.x * deltaTime,
-        projectilePos.y + projectileVel.y * deltaTime
-    );
-
+    // this will call all the entity's update functions
+    manager.Update(deltaTime);
 }
 
 void Game::Render()
@@ -138,20 +146,12 @@ void Game::Render()
     // clear the back buffer
     SDL_RenderClear(renderer);
 
-    // initialize the projectile as a rectangle (struct)
-    SDL_Rect projectile {
-        // cast the floats projectilePositionX,Y to ints
-        static_cast<int>(projectilePos.x),
-        static_cast<int>(projectilePos.y),
-        10, // width  
-        10 // height
-    };
-
-    // Change Draw color to white
-    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-
-    // Draw the rectangle by passing a reference
-    SDL_RenderFillRect(renderer, &projectile);
+    if (manager.HasNoEntities())
+    {
+        return;
+    }
+    
+    manager.Render();
 
     // Swap Front and Back Buffers 
     // (displaying the drawings that were made on the back buffer)
@@ -164,3 +164,4 @@ void Game::Destroy()
     SDL_DestroyWindow(window);
     SDL_Quit();
 }
+
