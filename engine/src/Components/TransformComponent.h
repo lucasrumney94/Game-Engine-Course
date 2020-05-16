@@ -14,13 +14,13 @@ class TransformComponent: public Component
         int width;
         int height;
         int scale;
-        TransformComponent(int posX, int posY, int velX, int velY, int width, int height, int scale)
+        TransformComponent(int posX, int posY, int velX, int velY, int w, int h, int s)
         {
             position = glm::vec2(posX, posY);
             velocity = glm::vec2(velX, velY);
-            width = width;
-            height = height;
-            scale = scale;
+            width = w;
+            height = h;
+            scale = s;
         }
     
         void Initialize() override

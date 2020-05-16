@@ -71,8 +71,9 @@ void Game::LoadLevel(int levelNumber)
 
     // create and add a new Entity named projectile
     Entity& newEntity(manager.AddEntity("projectile"));
-    newEntity.AddComponent<TransformComponent>(0, 0, 20, 20, 32, 32, 1);
+    TransformComponent myTransformDebug = newEntity.AddComponent<TransformComponent>(50, 50, 10, 10, 32, 32, 1);
 
+    std::cout<<"Level " << levelNumber <<" Loaded!"<<std::endl;
 }
 
 void Game::ProcessInput()
