@@ -98,7 +98,6 @@ class SpriteComponent: public Component
             if (isAnimated)
             {
                 // update the x by the width of the sourceRectangle, dependent on time.
-                std::cout<<animationSpeed<<std::endl;
                 sourceRectangle.x = sourceRectangle.w * static_cast<int>((SDL_GetTicks() / animationSpeed) % numFrames);
             }
 

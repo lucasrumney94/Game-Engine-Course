@@ -5,6 +5,7 @@
 #include "./Constants.h"
 #include "./Game.h"
 #include "./AssetManager.h"
+#include "./Map.h"
 #include "./Components/TransformComponent.h"
 #include "./Components/SpriteComponent.h"
 #include "./Components/KeyboardControlComponent.h"
@@ -13,6 +14,7 @@ EntityManager manager;
 AssetManager* Game::assetManager = new AssetManager(&manager);
 SDL_Renderer* Game::renderer;
 SDL_Event Game::event;
+Map* map;
 
 Game::Game(): ticksLastFrame{0}
 {
@@ -85,7 +87,15 @@ void Game::LoadLevel(int levelNumber)
         "radar-image",
         std::string("./assets/images/radar.png").c_str()
     );
+    assetManager->AddTexture(
+        "jungle-tiletexture",
+        std::string("./assets/tilemaps/jungle.png").c_str()
+    );
 
+
+    map = new Map("jungle-tiletexture", 2, 32);
+    map->LoadMap("./assets/tilemaps/jungle.map", 25, 20);
+    
     // add entities and components to the entities
     // create and add a new Entity named tank
     Entity& tankEntity(manager.AddEntity("tank"));
