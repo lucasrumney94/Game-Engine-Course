@@ -1,3 +1,4 @@
+#include<iostream>
 #include<string>
 
 #include "./Entity.h"
@@ -11,8 +12,8 @@ Entity::Entity(EntityManager& manager): manager(manager)
 
 // Define the second constructor of Entity that takes a string
 // and take care of setting the manager and name
-Entity::Entity(EntityManager& manager, std::string name)
-    : manager(manager), name(name)
+Entity::Entity(EntityManager& manager, std::string name, LayerType layer)
+    : manager(manager), name(name), layer(layer)
 {
     this->isActive = true;
 }
