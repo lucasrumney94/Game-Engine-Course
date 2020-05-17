@@ -27,6 +27,8 @@ class Game
         static SDL_Renderer *renderer;
         // static assetManager
         static AssetManager *assetManager;
+        // static event
+        static SDL_Event event;
 
         int ticksLastFrame;
 
