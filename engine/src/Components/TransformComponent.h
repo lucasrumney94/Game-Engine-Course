@@ -36,14 +36,15 @@ class TransformComponent: public Component
 
         void Render() override
         {
-            SDL_Rect transformRectangle = {
-                static_cast<int>(position.x),
-                static_cast<int>(position.y),
-                width,
-                height      
-            };
+            //NO NEED TO RENDER TRANSFORM ANYMORE
+            // SDL_Rect transformRectangle = {
+            //     static_cast<int>(position.x),
+            //     static_cast<int>(position.y),
+            //     width,
+            //     height      
+            // };
 
-            SDL_SetRenderDrawColor(Game::renderer, 255, 255, 255, 255);
-            SDL_RenderFillRect(Game::renderer, &transformRectangle);
+            // SDL_SetRenderDrawColor(Game::renderer, 255, 255, 255, 255);
+            // SDL_RenderFillRect(Game::renderer, &transformRectangle);
         }
 };

@@ -33,7 +33,16 @@
 https://sourceforge.net/projects/xming/
 
 ### Export Display Env Variable
+Set this in ~/.bash_rc file
 `export DISPLAY=:0`
 
 verify using 
 `xclock`
+
+## May need PNG supported on OS
+`sudo apt-get install libpng-dev`
+(didn't need this, SDL has it's own libpng)
+
+## debugging and profiling with valigrind
+`apt install valgrind`
+`valgrind -v ./game` 

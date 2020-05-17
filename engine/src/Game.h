@@ -8,6 +8,9 @@
 #include "./Component.h"
 #include "./EntityManager.h"
 
+//forward declaration
+class AssetManager;
+
 class Game 
 {
     private:
@@ -22,6 +25,8 @@ class Game
 
         // static renderer so its accessible from any render function
         static SDL_Renderer *renderer;
+        // static assetManager
+        static AssetManager *assetManager;
 
         int ticksLastFrame;
 
