@@ -1,5 +1,6 @@
 # Build Output
 game
+/.vscode
 
 # Prerequisites
 *.d
