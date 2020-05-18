@@ -29,6 +29,8 @@ class Game
         static AssetManager *assetManager;
         // static event
         static SDL_Event event;
+        // static camera
+        static SDL_Rect camera;
 
         int ticksLastFrame;
 
@@ -39,5 +41,7 @@ class Game
         void ProcessInput();
         void Update();
         void Render();
+        void HandleCameraMovement();
+        void CheckCollisions();
         void Destroy();
 };

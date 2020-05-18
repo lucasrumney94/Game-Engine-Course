@@ -48,7 +48,9 @@ class TileComponent: public Component
 
         void Update(float deltaTime) override
         {
-            // TODO: tile positions based on camera control
+            // reference the static game camera
+            destinationRectangle.x = position.x - Game::camera.x;
+            destinationRectangle.y = position.y - Game::camera.y;
         }
 
         void Render() override

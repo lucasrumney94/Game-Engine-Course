@@ -43,6 +43,13 @@ class Entity
             return *newComponent;
         }
 
+        template<typename T>
+        bool HasComponent() const
+        {
+            return componentTypeMap.count(&typeid(T));
+        }
+
+
         // needs to return a pointer, not a reference, 
         // because the result could be null!
         template<typename T>
@@ -50,5 +57,7 @@ class Entity
         {
             return static_cast<T*>(componentTypeMap[&typeid(T)]);
         }
+
+
 
 };
