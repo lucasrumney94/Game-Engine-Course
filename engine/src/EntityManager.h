@@ -20,6 +20,7 @@ class EntityManager
 
         // not going to change them, but just return the list
         std::vector<Entity*> GetEntities() const;
+        Entity* GetEntityByName(std::string entityName) const;
         std::vector<Entity*> GetEntitiesByLayer(LayerType layer) const;
         unsigned int GetEntityCount();
 

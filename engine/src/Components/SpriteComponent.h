@@ -33,6 +33,20 @@ class SpriteComponent: public Component
             SetTexture(filePath);
         }
 
+        SpriteComponent(std::string assetTextureId) 
+        {
+            this->isAnimated = false;
+            this->isFixed = false;
+            SetTexture(assetTextureId);
+        }
+
+        SpriteComponent(std::string assetTextureId, bool isFixed) 
+        {
+            this->isAnimated = false;
+            this->isFixed = isFixed;
+            SetTexture(assetTextureId);
+        }
+
         SpriteComponent(std::string animationID, int numFrames, int animationSpeed, bool hasDirections, bool isFixed)
         {
             isAnimated = true;

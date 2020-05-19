@@ -147,10 +147,11 @@ TArgs are the types of the arguments
 (can be named anything but this name is common)
 
 
+# Lua
+Simple scripting language
 
-
-
-
+Lua scripts work with states.
+A stack that defines the state of the program.
 
 
 
