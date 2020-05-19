@@ -1,4 +1,4 @@
-# Game-Engine-Course
+# Fundamentals of Game Engines with C++, SDL, and Lua
 [![Generic badge](https://img.shields.io/badge/Status-Course%20Complete-green.svg)](https://shields.io/) Fundamentals of Game Engines with C++, SDL, and Lua
 
 This is my project and related files for the 2D Game Engines Course. This course and project uses C++ (SDL, GLM) and Lua (SOL2).
