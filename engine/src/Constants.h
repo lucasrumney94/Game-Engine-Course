@@ -8,6 +8,15 @@ const unsigned int FPS = 60;
 // target frame time in whole milliseconds
 const unsigned int FRAME_TARGET_TIME = 1000 / FPS; 
 
+enum CollisionType 
+{
+    NO_COLLISION,
+    PLAYER_ENEMY_COLLISION, 
+    PLAYER_PROJECTILE_COLLISION, 
+    ENEMY_PROJECTILE_COLLISION,
+    PLAYER_VEGETATION_COLLISION,
+    PLAYER_LEVEL_COMPLETE_COLLISION
+};
 
 enum LayerType
 {
